@@ -100,6 +100,10 @@ pre {
     margin-bottom: 0;
 }
 
+img {
+    width: 100%;
+}
+
 input,
 textarea {
     --bs-body-bg: rgba(0, 0, 0, 0.225);
