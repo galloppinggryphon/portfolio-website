@@ -25,13 +25,14 @@ async function main() {
 	portfolioData = await readJsonFile( portfolioFile )
 
 	// getRemoteImages()
+	// generateExtraSizes()
 	resizeImages()
 }
 
 /**
  * Generate portfolio image sizes from full-sized originals.
  *
- * @param {boolean} overwrite
+ * //@param {boolean} overwrite
  */
 async function resizeImages( overwrite = false ) {
 	console.log( '\n*** Generating portfolio image sizes ***\n' )
@@ -41,10 +42,6 @@ async function resizeImages( overwrite = false ) {
 
 	for ( const item of portfolioData.projects ) {
 		for ( const size of sizes ) {
-			if ( item.image[ size ] && ! overwrite ) {
-				continue
-			}
-
 			const result = await createImageSize( item.image.original, size )
 
 			if ( result ) {
@@ -56,8 +53,6 @@ async function resizeImages( overwrite = false ) {
 		}
 	}
 
-	writeJson( portfolioFile, portfolioData )
-
 	if ( errors.length ) {
 		console.log( '\n\n\n=======================================\n' )
 		console.log( 'Resize operation errors:' )
@@ -65,7 +60,7 @@ async function resizeImages( overwrite = false ) {
 	}
 }
 
-async function createImageSize( image, size ) {
+function generateImageSizeFilename( image, size ) {
 	const filename = path.basename( image )
 	const target = path.join( targetPath, filename )
 
@@ -75,6 +70,17 @@ async function createImageSize( image, size ) {
 	const generatedFilename = `${ name }(${ size })${ ext }`
 	const outputFile = path.resolve( '.', outputPath, generatedFilename )
 
+	return { filename, generatedFilename, outputFile, target }
+}
+
+/**
+ * Resize image and save new copy to disk.
+ *
+ * @param {*} image
+ * @param {*} size
+ */
+async function createImageSize( image, size ) {
+	const { filename, generatedFilename, outputFile, target } = generateImageSizeFilename( image, size )
 	const { imageSizes } = config
 	console.log( `Resizing ${ filename }:`, size, imageSizes[ size ], ' ==>' )
 
@@ -140,6 +146,24 @@ async function resizeImage( input, output, newSize ) {
 		.catch( ( err ) => {
 			console.error( err )
 		} )
+}
+
+/**
+ * Generate entries for configured image sizes in portfolio.js. Only needs to be run if settings are changed.
+ */
+function generateExtraSizes() {
+	const errors = []
+	const sizes = Object.keys( config.imageSizes )
+
+	for ( const item of portfolioData.projects ) {
+		for ( const size of sizes ) {
+			const { generatedFilename } = generateImageSizeFilename( item.image.original, size )
+			item.image[ size ] = path.posix.join( outputFolder, generatedFilename )
+		}
+	}
+
+	writeJson( portfolioFile, portfolioData )
+
 }
 
 /**
