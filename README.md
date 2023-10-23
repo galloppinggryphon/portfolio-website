@@ -8,3 +8,6 @@ Web frontend created with Express 4.
 
 
 (C) Bjornar Egede-Nissen 2023
+
+
+![Screenshot](./screenshot.png)
