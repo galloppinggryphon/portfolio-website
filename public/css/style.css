@@ -530,6 +530,10 @@ textarea {
     z-index: 0;
 }
 
+.lightbox img {
+    width: auto;
+}
+
 .lightbox .modal-dialog {
     --bs-modal-padding: 0;
     --bs-modal-header-padding: 8px;
