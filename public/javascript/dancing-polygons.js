@@ -108,8 +108,6 @@ const defaultOptions = {
  */
 export function attachDancingPolygons( selector, options ) {
 	const elements = [ ...document.querySelectorAll( selector ) ]
-
-	console.log( elements )
 	elements.forEach( ( el ) => dancingPolygons( options ).attach( el ).initialize() )
 }
 
