@@ -1,0 +1,38 @@
+<%
+const includeTags = typeof noTags === 'undefined' ? true : ! noTags;
+const styleClass = typeof minimalStyle === 'undefined' ? '' : 'minimal-card';
+const hTag = "h" + (typeof headerLevel == "undefined" ? 3 : headerLevel);
+%>
+  <a href="<%=card.url%>" class="card h-100 <%= styleClass %>">
+  <div class="card-img shadow-sm rounded overflow-hidden">
+    <svg class="bd-placeholder-img shadow" width="100%" xmlns="http://www.w3.org/2000/svg" role="img"  focusable="false">
+      <title>Preview of <%= title %></title>
+      <text x="10%" y="50%" fill="#fff" dy=".3em"><%= title %></text>
+      <rect width="100%" height="100%" fill="#111"></rect>
+      <image href="<%= card.image %>" preserveAspectRatio="xMidYMin slice" />
+    </svg>
+  </div>
+  <div class="card-body d-flex flex-column justify-content-between">
+    <<%= hTag %> class="py-2">
+      <%- card.title %>
+    </<%= hTag %>>
+    <% if(includeTags) { %>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="row">
+        <div>
+          <% card.tags1.forEach(function(el) { %>
+          <span class="badge bg-primary">
+            <%= el %>
+          </span>
+          <% }); %>
+          <% card.tags2.forEach(function(el) { %>
+          <span class="badge bg-secondary">
+            <%= el %>
+          </span>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <% }; %>
+  </div>
+</a>

@@ -1,0 +1,26 @@
+<%
+const hTag = "h" + (typeof headerLevel == "undefined" ? 1 : headerLevel);
+const sizeClass = typeof size == "undefined" ? "" : "fs-" + size;
+%>
+<div class="row pb-4">
+  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '«'">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <a class="fs-6 text-uppercase plain-link" href="/">Home</a>
+      </li>
+      <% if(typeof parent !== 'undefined') { %>
+      <li class="breadcrumb-item active" aria-current="page">
+        <a class="fs-6 text-uppercase plain-link" href="/<%= parent %>"><%= parent %></a>
+      </li>
+      <% } %>
+      <li class="breadcrumb-item active" aria-current="page">
+      </li>
+    </ol>
+  </nav>
+  <header class="mb-4">
+    <<%= hTag %> class="mt-1 mb-1 <%= sizeClass %>">
+      <%- title %>
+    </<%= hTag %>>
+  </header>
+  <hr>
+</div>

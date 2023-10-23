@@ -1,0 +1,48 @@
+<%
+const hTag =  typeof isH1 == "undefined" ? 'div' : 'h1';
+%>
+<header class="site-header text-white">
+  <div class="parallax-bg tiles"></div>
+  <div class="no-parallax">
+    <div class="banner gradient-purple-blue">
+      <header class="text-center container">
+        <div class="row justify-content-between" style="overflow: hidden">
+          <div class="col col-md-4 col-lg-6 position-relative">
+            <%- include('../components/dancing-blob') %>
+            <div class="d-flex flex-column justify-content-between position-relative py-5">
+                <<%=hTag%> class="site-title fs-1 py-5">
+                <svg viewBox="0 0 350 160" xmlns="http://www.w3.org/2000/svg" width="350">
+                  <text y="80" x="0" textLength="350px" font-family="Franklin Gothic, Franklin Gothic Medium, Arial, Helvetica, sans-serif" font-size="95" font-stretch="condensed" letter-spacing="2" fill="white">BJØRNAR</text>
+                  <text y="140" x="0" textLength="350px" font-family="Franklin Gothic, Franklin Gothic Medium, Arial, Helvetica, sans-serif" font-size="55" font-stretch="condensed" letter-spacing="2" fill="white">EGEDE-NISSEN</text>
+                </svg>
+                </<%=hTag%>>
+              <div class="w-100 my-4 fs-3 text-white text-uppercase ">
+                <div>Software Developer</div>
+                <div>Problem Solver</div>
+                <div>Creative Mind</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5 col-lg-4 d-flex flex-column justify-content-between align-content-center pb-4 mb-4 d-none d-md-flex">
+            <div class="pt-2 pb-4">
+              <a href="https://github.com/galloppinggryphon" target="_blank" class="btn btn-dark">Github</a>
+              <a href="https://www.linkedin.com/in/b-egede-nissen/" target="_blank" class="btn btn-dark">LinkedIn</a>
+              <a href="/contact" class="btn btn-dark">Contact</a>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center " style="max-width: 350px">
+              <div style="">
+              <img src="/images/bear_warrior_sunburst.png" alt="Illustration of a bear with a viking helmet"/ width="100%">
+              </div>
+              <div class="px-5x" style="margin-top: -50px;">
+                <aside class="bg-white shadow rounded text-dark px-3 py-2" style=" ">
+                  <h4 class="fw-boldx">«Bear Warrior»</h4>
+                  <p>Bjørnar is a Norwegian name with origins in Old Norse meaning "bear warrior".</p>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+</header>

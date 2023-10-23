@@ -1,0 +1,170 @@
+{
+    "projects": [
+        {
+            "name": "venn-diagram-shading-tool",
+            "title": "Venn Diagram Shading Tool",
+            "description": "This is a tool for visualizing Venn diagrams, including unions and intersections between sets. I went looking for such a tool and (to my surprise) couldn’t really find a decent one. Very helpful when learning set theory. <a href=\"https://galloppinggryphon.github.io/venn-shader\" rel=\"noopener noreferrer\" target=\"_blank\">Follow this link</a> to try the app.</a></p>",
+            "repository": "https://github.com/galloppinggryphon/venn-shader",
+            "demo_url": "https://galloppinggryphon.github.io/venn-shader/",
+            "languages": [
+                "Javascript",
+                "Typescript"
+            ],
+            "tags": [
+                "Web app",
+                "React",
+                "ChartJS"
+            ],
+            "image": {
+                "original": "/images/portfolio/vennshader-screenshot.png",
+                "thumbnail": "/images/portfolio/generated/vennshader-screenshot(thumbnail).png",
+                "medium": "/images/portfolio/generated/vennshader-screenshot(medium).png",
+                "large": "/images/portfolio/generated/vennshader-screenshot(large).png"
+            }
+        },
+        {
+            "name": "universal-box",
+            "title": "Universal Box",
+            "description": "<p>Advanced layout and content block for the WordPress block editor, with support for background colour, background image, colour schemes, margin, padding, width, alignment and more. <em>This project was developed for private purposes initially, but is offered publicly as a proof-of-concept of how to create a modern, DRY WordPress block using a shared component framework based on React hooks and function based components</em>. See this <a href=\"https://egede-nissen.com/blog/projects/2022/universal-box/\" rel=\"noopener noreferrer\" target=\"_blank\">blog post</a> for more information and a live demonstration.</p>",
+            "repository": "https://github.com/galloppinggryphon/UniversalBox",
+            "demo_url": "",
+            "languages": [
+                "Javascript",
+                "Typescript"
+            ],
+            "tags": [
+                "React",
+                "Wordpress",
+                "Gutenberg",
+                "Plugin"
+            ],
+            "image": {
+                "original": "/images/portfolio/ub-editor-screenshot.png",
+                "large": "/images/portfolio/generated/ub-editor-screenshot(large).png",
+                "medium": "/images/portfolio/generated/ub-editor-screenshot(medium).png",
+                "thumbnail": "/images/portfolio/generated/ub-editor-screenshot(thumbnail).png"
+            }
+        },
+        {
+            "name": "huxleyqm-quote-manager",
+            "title": "HuxleyQM &#8211; Quote Manager",
+            "description": "<p>HuxleyQM is a quote database and browser. It was created for personal purposes - both because I love a good quote and need a way to keep track of them, and because I wanted to create a web app from the ground up (full stack). The frond-end is based on jQuery/ajax, the back-end is implemented in PHP. It includes a Wordpress inspired query system, a simple database wrapper based on PDO, and a database install/update system with schemas saved in text files.</p>",
+            "repository": "",
+            "demo_url": "",
+            "languages": [
+                "Javascript",
+                "PHP",
+                "MySQL"
+            ],
+            "tags": [
+                "Web App"
+            ],
+            "image": {
+                "original": "/images/portfolio/huxleyqm-preview-browse.png",
+                "large": "/images/portfolio/generated/huxleyqm-preview-browse(large).png",
+                "medium": "/images/portfolio/generated/huxleyqm-preview-browse(medium).png",
+                "thumbnail": "/images/portfolio/generated/huxleyqm-preview-browse(thumbnail).png"
+            }
+        },
+        {
+            "name": "engineering-tools-minecraft",
+            "title": "Engineering Tools (Minecraft addon)",
+            "description": "Minecraft Bedrock Add-on with in-game tools for building faster, bigger and longer. Only compatible with Bedrock v1.16.",
+            "repository": "",
+            "demo_url": "",
+            "languages": [
+                "Javascript"
+            ],
+            "tags": [
+                "Minecraft",
+                "Add-on"
+            ],
+            "image": {
+                "original": "/images/portfolio/engineering-tools-thumbnail.jpg",
+                "large": "/images/portfolio/generated/engineering-tools-thumbnail(large).jpg",
+                "medium": "/images/portfolio/generated/engineering-tools-thumbnail(medium).jpg",
+                "thumbnail": "/images/portfolio/generated/engineering-tools-thumbnail(thumbnail).jpg"
+            }
+        },
+        {
+            "name": "humble-block-generator",
+            "title": "Humble Block Generator",
+            "description": "Tool for creating custom blocks for <em>Minecraft Bedrock Edition</em>&nbsp;based on templates -- quickly, conveniently, efficiently. HUB's most powerful feature is creating block permutations based on declarative templates. It makes it easy to create blocks with shared features, for example subtypes within the same category, like different kinds of stairs, columns, walls and so on.",
+            "repository": "https://github.com/galloppinggryphon/HumbleBlockGenerator",
+            "demo_url": "",
+            "languages": [
+                "Javascript"
+            ],
+            "tags": [
+                "NodeJS",
+                "Command line"
+            ],
+            "image": {
+                "original": "/images/portfolio/HUB-thumbnail-2-1.png",
+                "large": "/images/portfolio/generated/HUB-thumbnail-2-1(large).png",
+                "medium": "/images/portfolio/generated/HUB-thumbnail-2-1(medium).png",
+                "thumbnail": "/images/portfolio/generated/HUB-thumbnail-2-1(thumbnail).png"
+            }
+        },
+        {
+            "name": "logbookjs",
+            "title": "LogbookJS &#8211; Console Logging Utility",
+            "description": "Javascript utility for creating custom browser console logging functions. Create unlimited logging functions, all attached to <code>console</code>. Preserves call location (file, line number). Create different log styles with CSS (background, foreground, font size, etc)",
+            "repository": "https://github.com/galloppinggryphon/logbookjs",
+            "demo_url": "",
+            "languages": [
+                "Javascript"
+            ],
+            "tags": [
+                "Library"
+            ],
+            "image": {
+                "original": "/images/portfolio/logbook_preview.jpg",
+                "large": "/images/portfolio/generated/logbook_preview(large).jpg",
+                "medium": "/images/portfolio/generated/logbook_preview(medium).jpg",
+                "thumbnail": "/images/portfolio/generated/logbook_preview(thumbnail).jpg"
+            }
+        },
+        {
+            "name": "onedrive-recovery-tool",
+            "title": "Onedrive Recovery Tool",
+            "description": "A simple and experimental tool for recovering deleted files and folders from your personal Onedrive using MS Graph. Find and retrieve lost files and folders that can otherwise be hard or impossible to recover from the Onedrive recycle bin. Quickly bulk restore an entire folder and its contents. Recursively recover deleted files and folders if bulk restore is not possible.",
+            "repository": "https://github.com/galloppinggryphon/onedrive-recovery",
+            "demo_url": "",
+            "languages": [
+                "Javascript"
+            ],
+            "tags": [
+                "Web App",
+                "MS Graph",
+                "NodeJS"
+            ],
+            "image": {
+                "original": "/images/portfolio/onedrive-discover.png",
+                "large": "/images/portfolio/generated/onedrive-discover(large).png",
+                "medium": "/images/portfolio/generated/onedrive-discover(medium).png",
+                "thumbnail": "/images/portfolio/generated/onedrive-discover(thumbnail).png"
+            }
+        },
+        {
+            "name": "colour-composer",
+            "title": "Colour Composer",
+            "description": "Simple and user friendly utility for composing colour palettes created with Vue 3. No server or compilation required, it just runs.",
+            "repository": "https://github.com/galloppinggryphon/ColourComposer",
+            "demo_url": "https://galloppinggryphon.github.io/ColourComposer/",
+            "languages": [
+                "Javascript"
+            ],
+            "tags": [
+                "Vue",
+                "WebApp"
+            ],
+            "image": {
+                "original": "/images/portfolio/colour-composer-screenshot.png",
+                "large": "/images/portfolio/generated/colour-composer-screenshot(large).png",
+                "medium": "/images/portfolio/generated/colour-composer-screenshot(medium).png",
+                "thumbnail": "/images/portfolio/generated/colour-composer-screenshot(thumbnail).png"
+            }
+        }
+    ]
+}

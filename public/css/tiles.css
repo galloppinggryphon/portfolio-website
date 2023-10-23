@@ -1,0 +1,47 @@
+/**
+ * tiles.css
+ * (C) Bjornar Egede-Nissen 2023
+ */
+
+:root {
+    --tile-size: 100px;
+    --tile-angle: 25deg;
+    --tile-overlay-angle: 135deg;
+    --tile-overlay-colour-1: rgba(0, 42, 120, 0.87);
+    --tile-overlay-colour-2: rgba(0, 255, 251, 0.7);
+}
+
+.tiles {
+    background-color: #212529;
+
+    background-image:
+    /* linear-gradient(
+        var(--tile-overlay-angle),
+        var(--tile-overlay-colour-1) 10%,
+        var(--tile-overlay-colour-2)
+      ), */ repeating-linear-gradient(
+            var(--tile-angle),
+            white var(--tile-size),
+            white 0,
+            transparent calc(var(--tile-size) * 2)
+        ),
+        repeating-linear-gradient(
+            calc(var(--tile-angle) - 90deg),
+            white var(--tile-size),
+            #bbb 0,
+            transparent calc(var(--tile-size) * 2)
+        );
+}
+
+.tiles-small {
+    --tile-size: 50px;
+}
+
+.tiles-magenta {
+    --tile-overlay-colour-1: rgba(128, 0, 119, 0.705);
+    --tile-overlay-colour-2: rgba(115, 0, 255, 0.705);
+}
+
+.slow-dance {
+    animation-duration: 30s !important;
+}

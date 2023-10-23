@@ -1,0 +1,79 @@
+<div class="py-5 gx-0">
+  <%- include('../components/header') %>
+
+  <div class="alert alert-warning mb-5" role="alert">
+    Note - this is a dummy form. It will simulate a submission but won't send anything.
+  </div>
+  <div id="formFeedback" class="d-none">
+    <div class="alert alert-success mb-5" role="alert">
+      <h2 class="fs-4 mb-4">Message sent!</h2>
+      <h3 class="fs-5">Summary</h3>
+      <dl>
+        <dt>Name: </dt><dd id="formFeedbackName"></dd>
+        <dt>Email: </dt><dd id="formFeedbackEmail"></dd>
+        <dt>Message: </dt><dd id="formFeedbackMsg"></dd>
+      </dl>
+      <a href="/" class="btn btn-secondary my-3">Continue to home page</a>
+    </div>
+  </div>
+  <form id="msgForm">
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label for="formFirstname" class="form-label">First name</label>
+            <input class="form-control" id="formFirstname" placeholder="">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="formLastname" class="form-label">Last name</label>
+            <input class="form-control" id="formLastname" placeholder="">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="formEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="formEmail" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="formMessage" class="form-label">Message</label>
+          <textarea class="form-control" id="formMessage" rows="3"></textarea>
+        </div>
+        <div class="my-5">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+
+  /**
+   * Confirmation alert
+   */
+  (() => {
+    const form = document.querySelector('#msgForm')
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      console.log(form.querySelector('#formMessage'))
+
+      const inputs = [...form.querySelectorAll('input, textarea, button')]
+      inputs.forEach((el) => {
+        el.disabled = true
+      })
+
+      const formFeedback = document.querySelector('#formFeedback')
+      formFeedback.classList.remove('d-none')
+
+      formFeedback
+        .querySelector('#formFeedbackName')
+        .innerHTML = form.querySelector('#formFirstname').value + ' ' + form.querySelector('#formLastname').value
+
+      formFeedback
+        .querySelector('#formFeedbackEmail')
+        .innerHTML = form.querySelector('#formEmail').value
+
+      formFeedback
+        .querySelector('#formFeedbackMsg')
+        .innerHTML = form.querySelector('#formMessage').value
+    })
+  })()
+</script>

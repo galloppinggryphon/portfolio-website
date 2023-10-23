@@ -1,0 +1,143 @@
+<!-- The blog is just simulated -->
+<div class="py-5 gx-0">
+  <div class="container">
+    <%- include('../components/header') %>
+    <article class="post mt-5 pb-5">
+      <header class="mb-5">
+        <h2 class="post-title">Meet Viking Bear</h2>
+        <div class="post-meta">
+          Posted <time datetime="2023-10-10">Oct 10, 2023</time>
+        </div>
+      </header>
+      <div class="content">
+        <div class="row wide gx-5">
+          <div class="col">
+            <p>This entire website was created as a class assignment in web application development. Part of the assignnent was also to create a logo - so meet Viking Bear, my new mascot. Viking Bear is a proud bear warrior, reflecting my name (that's what Bjørnar means in Old Norse). I drew Viking Bear in Affinity Designer using inspiration from bits and pieces from the internet. By the way - the vikings did not use horned helmets, that's a Disney invention.</p>
+          </div>
+          <div class="col-3">
+            <img src="/images/bear_warrior_500.png" width="100%" al="Illustration of a bear with a helmet.">
+          </div>
+        </div>
+
+      </div>
+    </article>
+    <article class="post mt-5">
+      <header class="mb-5">
+        <h2 class="post-title">Dancing Blob - Animating CSS clip-path</h2>
+        <div class="post-meta">
+          Posted <time datetime="2023-10-10">Oct 10, 2023</time>
+        </div>
+      </header>
+
+      <style type="text/css">
+        .dancing-blob-example {
+          animation: ease dancing-blob-example 2000ms infinite alternate;
+          width: 500px;
+          max-width: 100%;
+          height: 300px;
+        }
+
+        @keyframes dancing-blob-example {
+
+          0% {
+            clip-path: polygon(0% 0%,
+                90% 10%,
+                90% 90%,
+                20% 80%);
+          }
+
+          100% {
+            clip-path: polygon(10% 10%,
+                90% 90%,
+                90% 10%,
+                10% 90%);
+          }
+        }
+      </style>
+      <div class="content">
+        <p>Maybe you noticed the moving polygons in the header - they're `divs` with a gradient background and an animated CSS clip-path. In addition, they're created randomly on each page-load by a small Javascript library.</p>
+        <figure class="figure my-5">
+          <figcaption>Dancing bowtie</figcaption>
+          <div class="p-4 bg-dark-alt">
+            <div data-dancing-blobx='{"polygon": "star_five_sided_1", "steps": 4, "speed": "fast"}' class="dancing-blob-example gradient-purple-pink"></div>
+          </div>
+        </figure>
+        <p>You don't need Javascript, however, just a few lines of CSS. The 'dancing bowtie' above is extremely simple: just a div with a coloured background and a CSS animation with two steps.</p>
+        <p>Here's the code that makes it work.</p>
+        <div class="row wide my-4">
+          <div class="col-6">
+            <figure class="figure">
+              <figcaption>CSS</figcaption>
+              <code class="code">
+                <pre>
+.dancing-blob-example {
+  animation: ease polygon-animation 2000ms infinite alternate;
+
+  width: 500px;
+  max-width: 100%;
+  height: 300px;
+}
+
+@keyframes polygon-animation {
+  0% {
+    clip-path: polygon(
+      0% 0%,
+      90% 10%, /* crosses itself */
+      90% 90%,
+      20% 80%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      10% 10%,
+      90% 90%, /* uncrosses itself */
+      90% 10%,
+      10% 90%
+    );
+  }
+}
+                  </pre>
+              </code>
+            </figure>
+          </div>
+          <div class="col-6">
+            <figure class="figure">
+              <figcaption>HTML</figcaption>
+              <code class="code">
+                &lt;div class=&quot;dancing-blob-example&gt;&lt;/div&gt;
+              </code>
+            </figure>
+          </div>
+        </div>
+        <p>Before looking at how the animation works, let's consider how it gets its shape. The <mark>clip-path</mark> property takes a pair of virtual scissors to the HTML element its defined on, exposing whatever is underneath. It's possible to cut out a variety of shapes, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" target="_blank">including circles, rectangles, polygons and SVG path data (for complex shapes)</a>. The <mark>polygon()</mark> option defines a set of vertices (a vertex is a coordinate pair) that forms a closed shape with straight lines between each vertex. The vertices are defined in clockwise direction. Note that the zero point is in the top left corner and that the coordinates are denoted in percent, although you could use an absolute unit (e.g. px). All this is illustrated below.</p>
+        <div class="row wide">
+          <div class="col-6">
+            <figure class="figure my-4">
+              <figcaption>Illustration of the bowtie figure</figcaption>
+              <img src="/images/blog/bowtie.png" alt="Illustration of a bowtie" width="100%">
+            </figure>
+          </div>
+          <div class="col-6">
+            <figure class="figure my-4">
+              <figcaption>Illustration of a trapezoid</figcaption>
+              <img src="/images/blog/trapezoid.png" alt="Illustration of a trapezoid" width="100%">
+            </figure>
+          </div>
+        </div>
+        <p>Clip-path could have been applied as a property to the class, but in this case, it's attached to a CSS animation. This is defined in <mark>@keyframes polygon-animation</mark>. It creates two frames (although you could have as many as you like), with the steps in-between (the tweening) extrapolated by the browser.</p>
+        <p>The <mark>animation</mark> property attached to the class is responsible for actually running the show. CSS animations can get <del>a bit</del> insanely advanced, but it's relatively straight-forward here. Let's examine the short-hand notation of the animation property (<code>animation: ease polygon-animation 2000ms infinite alternate</code>) to see what they mean.</p>
+        <figure class="figure my-5">
+          <figcaption>Animation properties</figcaption>
+          <p><code>animation-timing-function: ease</code>. Defines the transition between the first and last keyframe - whether it proceeds linearly or whether it bounces a bit (here it bounces).</p>
+          <p><code>animation-name: polygon-animation</code>. The name of the @keyframes element to use.</p>
+          <p><code>animation-duration: 2000ms</code>. How long the whole animation should last, in milliseconds</p>
+          <p><code>animation-iteration-count: infinite</code>. Play the animation an infinite number of times.</p>
+          <p><code>animation-direction: alternate</code>. Switch between playing it forwards and backwards. With normal playback direction it would jerk back to the first keyframe without tweening.</p>
+        </figure>
+        <p>So there you have it. To learn more about CSS animations, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" target="_blank">Mozilla has the complete documentation</a>. Now go forth and add some joy to the web!</p>
+      </div>
+    </article>
+
+
+  </div>
+</div>

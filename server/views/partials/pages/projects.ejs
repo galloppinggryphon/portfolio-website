@@ -1,0 +1,12 @@
+  <div class="py-5">
+    <div class="container">
+      <%- include('../components/header') %>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-5 pt-3">
+        <% data.projects.forEach(function(item) { %>
+        <div class="col">
+          <%- include('../components/card', {headerLevel: 3, card: { image: item.image.thumbnail, title: item.title, url: "/projects/" + item.name, tags1: item.languages, tags2: item.tags}, }) %>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>

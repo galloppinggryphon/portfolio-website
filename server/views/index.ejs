@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<%- include('partials/structure/head', {title}); %>
+<body>
+  <div class="parallax-container">
+    <%- include('partials/structure/banner', {title,page,data}); %>
+    <div class="container-fluid bg-dark no-parallax">
+      <div class="container">
+        <div class="row py-5 gx-5 align-items-stretch">
+          <%- include('partials/structure/sidebar', {title,page,data,menu,params}); %>
+          <main class="col flex-grow" style="z-index: 100">
+            <%- include('partials/pages/' +  page, {title,page,data}); %>
+          </main>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/structure/footer', {title,page,data}); %>
+  </div>
+</body>
+</html>
