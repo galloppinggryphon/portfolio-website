@@ -9,3 +9,6 @@ public/images/portfolio/generated/**
 
 #env
 .env
+
+#ignore file prefix
+~~*
